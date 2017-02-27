@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <title>Welcome</title>
+  <!-- <link rel="stylesheet" href="//kevinburke.bitbucket.org/markdowncss/markdown.css"> -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="markdown-content">
+  </div>
+  <footer id="footer" class="footer">&copy;Copyright 2017 by <a href="#">zhengdongjian</a>.</footer>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/showdown/1.6.3/showdown.min.js"></script>
+  <script>
+    const markdown = new showdown.Converter({
+      'strikethrough': 'true',
+      'tables': 'true',
+      'tasklists': 'true',
+    });
+    $.get('index.md', (data) => {
+      $('#markdown-content').html(markdown.makeHtml(data));
+    });
+  </script>
+</body>
+</html>
